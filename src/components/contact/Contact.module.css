@@ -1,0 +1,25 @@
+.item{
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 280px; 
+}
+.info{
+    display: flex;
+  flex-direction: column; 
+  font-size: large;
+  font-weight: 500;
+  align-items: flex-start;
+}
+.icon{
+    margin-right: 2px;
+    width: 36px;
+    height: 22px;
+}
+.delete{
+    margin-left: 2px;
+    margin-top: 30px;
+}

@@ -1,0 +1,18 @@
+.search{
+    width: 280px;
+    padding: 8px;
+}
+.search:hover,
+.search:focus{
+    border-color: rgb(74, 118, 220);
+}
+.searchbox{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 8px;
+}
+.text{
+    font-weight: 500;
+   margin: 2px;
+}

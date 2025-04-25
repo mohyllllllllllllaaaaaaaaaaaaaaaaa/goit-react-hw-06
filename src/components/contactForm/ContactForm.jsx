@@ -1,8 +1,9 @@
 import { Formik, Form,Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import  css from './ContactForm.module.css';
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import {addContact} from '../../redux/contactsSlice';
+import { nanoid } from 'nanoid';
 
 const ContactForm = () => {
   const validationSchema = Yup.object({
@@ -10,13 +11,20 @@ const ContactForm = () => {
     number: Yup.string().min(5, 'Too short!').max(15, 'Too long!').required('Required'),
   });
   const dispatch = useDispatch();
+  const contacts = useSelector((state) => state.contacts.items);
+ 
 
   return (
     <Formik
       initialValues={{ name: '', number: '' }}
       validationSchema={validationSchema}
       onSubmit={(values, { resetForm }) => {
-       dispatch(addContact(values));
+        if (contacts.some(contact => contact.name.toLowerCase() === values.name.toLowerCase())) {
+          alert(`${values.name} is already in contacts.`);
+          return;
+        }
+        const newContact = { id: nanoid(), ...values };
+       dispatch(addContact(newContact));
         resetForm();
       }}
     >
@@ -30,7 +38,7 @@ const ContactForm = () => {
         <div>
           <label htmlFor="number">Phone Number</label>
           <Field className={css.input}
-          type="number" name="number" id="number" />
+          type="tel" name="number" id="number" />
           <ErrorMessage name="number" component="div" />
         </div>
         <button type="submit" className={css.add}>Add contact</button>

@@ -12,11 +12,14 @@ const dispatch = useDispatch();
   return (
       <ul className={css.list}>
         {contacts.map(contact => (
+           <li key={contact.id} className={css.item}>
           <Contact
-            key={contact.id}
             contact={contact}
-            removeContact={() => dispatch(deleteContact(contact.id))}
+            removeContact={() => {
+              dispatch(deleteContact(contact.id));}
+            }
           />
+          </li>
         ))}
       </ul>
     );

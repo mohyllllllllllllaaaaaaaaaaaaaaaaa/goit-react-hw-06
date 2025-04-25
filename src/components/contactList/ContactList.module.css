@@ -5,3 +5,12 @@
     padding: 0;
    
 }
+.item{
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 280px; 
+}

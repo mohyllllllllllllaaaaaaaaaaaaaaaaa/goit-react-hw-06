@@ -4,16 +4,16 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 
 const Contact = ({ contact, removeContact }) => {
     return (
-      <li className={css.item}>
-        <div className={css.info}>
-        <p><BsFillPersonFill className={css.icon}/>
+      <>
+      <div className={css.info}>
+        <p><BsFillPersonFill className={css.icon} />
           {contact.name}</p>
-        <p><BsFillTelephoneFill className={css.icon}/>
+        <p><BsFillTelephoneFill className={css.icon} />
           {contact.number}</p>
-        </div>
-        <button className={css.delete}
-         onClick={removeContact}>Delete</button>
-      </li>
+      </div>
+      <button className={css.delete} onClick={removeContact}>Delete</button>
+    </>
+    
     );
   };
   

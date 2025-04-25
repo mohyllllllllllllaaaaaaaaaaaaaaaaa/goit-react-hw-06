@@ -8,7 +8,7 @@ import { nanoid } from 'nanoid';
 const ContactForm = () => {
   const validationSchema = Yup.object({
     name: Yup.string().min(3, 'Too short!').max(50, 'Too long!').required('Required'),
-    number: Yup.string().min(5, 'Too short!').max(15, 'Too long!').required('Required'),
+    number: Yup.string().min(5, 'Too short!').max(18, 'Too long!').required('Required'),
   });
   const dispatch = useDispatch();
   const contacts = useSelector((state) => state.contacts.items);
